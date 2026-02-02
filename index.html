@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html class="html" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Média de Notas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Média das Notas dos Alunos</h1>
+    </header>
+    
+    <section class="main-section">
+        <div>
+            <span>Nota: </span>
+            <input type="number" class="input">
+            <button id="add-nota" class="button">Adicionar</button>
+        </div>
+        
+        <textarea id="lista-notas" rows="15" cols="35" readonly></textarea>
+        <button id="botao-media" class="media button">Calcular Média</button>
+        <span id="texto-media" class="media">A média é: </span>
+    </section>
+
+    <script src="script_dom.js"></script>
+</body>
+</html>
