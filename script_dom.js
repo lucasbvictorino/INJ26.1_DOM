@@ -27,7 +27,11 @@ function calcularMedia() {
     notas.map((nota) => {
         media = media + nota;
     })
-    media = media / notas.length;
+    if(notas.length === 0) {
+        media = 0;
+    } else {
+        media = media / notas.length;
+    }
     textoMedia.innerText = `A média é: ${media.toFixed(2)}`;
 }
 
