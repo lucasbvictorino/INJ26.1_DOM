@@ -2,15 +2,22 @@ let notas = [];
 
 function adicionarNota() {
     let input = document.querySelector(".input");
-    let textarea = document.querySelector("#lista-notas");
-    // let nota = document.createElement("p");
-    // nota.innerText = `A nota ${notas.length + 1} foi ` + input.value;
-    // console.log(nota.innerText);
-    let textoNota = `A nota ${notas.length + 1} foi ` + input.value + "\n";
-    notas.push(input.value);
-    input.value = "";
+    if(input.value.trim() === "") {
+        alert("Por favor, insira uma nota.");
+        return;
+    } 
 
-    // textarea.append(nota);
+    let valor = parseFloat(input.value);
+    if(valor === null || Number.isNaN(valor) || valor < 0 || valor > 10){
+        alert("A nota digitada é inválida, por favor, insira uma nota válida.");
+        input.value = "";
+        return;
+    }
+
+    let textarea = document.querySelector("#lista-notas");
+    let textoNota = `A nota ${notas.length + 1} foi ${valor.toFixed(2)} \n`;
+    notas.push(valor);
+    input.value = "";
     textarea.value += textoNota;
 }
 
@@ -18,7 +25,7 @@ function calcularMedia() {
     let textoMedia = document.querySelector("#texto-media");
     let media = 0;
     notas.map((nota) => {
-        media = media + parseFloat(nota);
+        media = media + nota;
     })
     media = media / notas.length;
     textoMedia.innerText = `A média é: ${media.toFixed(2)}`;
